@@ -1,0 +1,11 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/Uebung1.dir/main.c.o"
+  "CMakeFiles/Uebung1.dir/stack.c.o"
+  "Uebung1.pdb"
+  "Uebung1"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/Uebung1.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

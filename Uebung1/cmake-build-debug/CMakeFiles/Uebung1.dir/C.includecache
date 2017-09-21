@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/gebs/Projects/PCP/Uebung1/main.c
+stdio.h
+-
+stack.h
+/home/gebs/Projects/PCP/Uebung1/stack.h
+stdlib.h
+-
+
+/home/gebs/Projects/PCP/Uebung1/stack.c
+stdio.h
+-
+stdlib.h
+-
+stack.h
+/home/gebs/Projects/PCP/Uebung1/stack.h
+
+/home/gebs/Projects/PCP/Uebung1/stack.h
+

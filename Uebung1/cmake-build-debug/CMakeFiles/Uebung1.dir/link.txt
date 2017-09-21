@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/Uebung1.dir/main.c.o CMakeFiles/Uebung1.dir/stack.c.o  -o Uebung1 
