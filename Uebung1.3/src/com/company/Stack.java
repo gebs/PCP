@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Stack {
-    ArrayList<Element> mystack = new ArrayList<Element>();
+    //ArrayList<Element> mystack = new ArrayList<Element>();
+    Element top;
     int CURRENT_INDEX;
     Element EMPTY_ELEMENT = new Element(-1111111);
 
@@ -14,48 +15,43 @@ public class Stack {
     }
 
     public void push(Element e) {
-        mystack.add(e);
 
-        if (CURRENT_INDEX > 0)
-            mystack.get(CURRENT_INDEX - 1).setNext(e);
+        e.setNext(top);
+        top = e;
 
         CURRENT_INDEX++;
     }
 
     public Element top() {
-        if (CURRENT_INDEX > 0) {
-            return mystack.get(CURRENT_INDEX - 1);
-        } else {
-           // System.out.println("ERROR - top: stack empty!");
+        if (top != null)
+            return top;
+        else
             return EMPTY_ELEMENT;
-        }
     }
 
     public boolean pop() {
-        if (CURRENT_INDEX > 0) {
-            mystack.remove(CURRENT_INDEX - 1);
+        if (top != null) {
+            top = top.getNext();
             CURRENT_INDEX--;
             return true;
-        } else {
-            return false;
+        }else
+        {
+            return  false;
         }
-
     }
 
     public void print() {
-        if (mystack.size() > 0) {
+        if (top != null){
             System.out.print("print - Stack contains: ");
-            for (int i = CURRENT_INDEX - 1; i > -1; i--) {
-                System.out.print(mystack.get(i).getValue() + ", ");
-            }
+            System.out.print(top.toString() + " ");
             System.out.print("top element = " + top().getValue() + "\n");
-        } else {
+        }else{
             System.out.print("print - Stack is empty\n");
         }
     }
 
     public boolean isEmpty() {
-        return CURRENT_INDEX == 0;
+        return top == null;
     }
 
     public int size() {

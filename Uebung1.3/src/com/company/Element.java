@@ -2,7 +2,7 @@ package com.company;
 
 public class Element {
     private int value;
-    private Element element;
+    private Element next;
 
     public Element(int value) {
         this.value = value;
@@ -13,10 +13,19 @@ public class Element {
     }
 
     public Element getNext() {
-        return element;
+        return next;
     }
 
     public void setNext(Element next) {
-        this.element = next;
+        this.next = next;
+    }
+
+    @Override
+    public String toString() {
+        if (next == null)
+            return this.value + "";
+        else
+            return this.value + " " +  next.toString();
+
     }
 }

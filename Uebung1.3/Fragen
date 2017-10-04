@@ -1,0 +1,12 @@
+2. c Man könnte für diesen Stack auch eine Operation clear definieren, welche den Stack leert.
+Macht es Sinn, für diese C-Implementierung von einem Stack eine clear-Operation zu
+implementieren? Begründen Sie ihre Antwort.
+
+Ja hier macht es sinn ein clear zu definieren, welches alle Object vom Speicher freigeben. Da C kein GarbageCollector implementiert.
+
+
+3. c Man könnte für diesen Stack auch eine Operation clear definieren, welche den Stack leert.
+Macht es Sinn, für diese Java-Implementierung von einem Stack eine clear-Operation zu
+implementieren? Begründen Sie ihre Antwort
+
+Hier ist es nicht nötig ein clear zu implementieren. Wenn der Stack nicht mehr verwendet wird, wird dieser com GarbageCollector aufgeräumt.
