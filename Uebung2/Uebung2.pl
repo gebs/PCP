@@ -47,6 +47,7 @@ solution(L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12) :-
 
 %4
 n(yellow,red). n(yellow,green). n(red,green).
+n(red,yellow). n(green,yellow). n(green,red).
 
 colors(LU,NW,OW,SZ,UR,ZG) :-
                             UR = yellow,
@@ -54,7 +55,8 @@ colors(LU,NW,OW,SZ,UR,ZG) :-
                             n(LU,ZG),n(LU,SZ),n(LU,NW),n(LU,OW),
                             n(ZG,SZ),
                             n(SZ,NW),n(SZ,UR),
-                            n(NW,OW),n(NW,UR).
+                            n(NW,OW),n(NW,UR),
+                            n(OW,UR).
 %5
 %op(1150,xfx,mother). 
 %op(1150,xfx,offspring).
@@ -69,15 +71,14 @@ colors(LU,NW,OW,SZ,UR,ZG) :-
 %Bei der Aufgabe b). wird X der Wert 3-1 zugewiesen, in aufgabe c). wird durch das "is" eine Ausrechnung erzwungen
 
 %7
-mult(0,0,0).
-mult(X,0,Z) :-
+mult(X,Y,Z) :-
+            X < 1,
             Z is 0.
-mutl(0,Y,Z) :-
-            Z is 0.
+mult(X,Y,Z) :- 
+            X = 1,
+            Z is Y.
 mult(X,Y,Z) :-
             X > 1,
             X1 is X -1,
-            X2 is X -2,
             mult(X1,Y,Z1),
-            mult(X2,Y,Z2),
-            Z is Z2 + Z1.
+            Z is Y + Z1.
