@@ -7,7 +7,7 @@ fib_tr(N,A,B,F) :-
                 Sum is A + B,
                 fib_tr(N1,B,Sum,F).
 io_fib() :- 
-            write('Gib eine Zahl ein:'),
+            write('Gib eine Zahl ein: '),
             nl,
             read(X),            
             fib_tr(X,Y),
@@ -42,8 +42,19 @@ add_tail(X,[Head|Tail],[Head|L]) :-
                         add_tail(X,Tail,L).
 
 %3 b).
+del([X|T],X,T).
+del([H|T],X,[H|L]) :- del(T,X,L).
 
+%3 c).
+mem_d(X,L) :- del(L,X,_).
 
+%3 d).
+rev_acc([],A,A).
+rev_acc([X|L],A,R):-
+                rev_acc(L,[X|A],R).
+
+%3 e).
+rev(L,R) :- rev_acc(L,[],R).
 
 %4
 p(X) :- a(X).
