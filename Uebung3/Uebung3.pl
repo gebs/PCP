@@ -70,11 +70,12 @@ d(4).
 
 %5
 warn(T) :- T < 80, write('Temparatur ok').
-warn(T) :- T > 80, T < 100, write('Temparatur sehr warm').
-warn(T) :- T > 100, write('Temparatur zu heiss').
+warn(T) :- T >= 80, T < 100, write('Temparatur sehr warm').
+warn(T) :- T >= 100, write('Temparatur zu heiss').
 
 % Ohne Cut Operator muss darauf geachtet werden dass sich die einzelnen Reglen ausschliessen. Ansonsten gibt es mehrere Lösungen.
 
-mem(X, [X | _]) :- !.
+%6
+mem(X, [X | _]).
 mem(X, [_| Tail]) :- mem(X, Tail).
 % Der CUT Operator im ersten Prädikat verhindert das Backtracking, und somit die Suche nach weiteren Lösungen.
