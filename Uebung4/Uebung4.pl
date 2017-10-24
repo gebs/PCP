@@ -1,9 +1,12 @@
 :- use_module(library(http/json)).
 :- use_module(library(http/http_client)).
 :- use_module(library(http/json_convert)).
-:- use_module(library(http/http_json)).
+%:- use_module(library(http/http_json)).
 :- use_module(library(clpfd)).
 :- use_module(library(clpr)).
+
+:- json_object
+        solution(problemKey:integer, solution:list).
 
 %----------------------------------------------------------------------------------------------------------------------------------------------------
 %---------------------------------------------------------------------- Aufgabe 1 -------------------------------------------------------------------
@@ -110,7 +113,7 @@ solve(Problem,ID) :-
             solve(Problem,ID,16316).
 
 solve(Problem,ID,Port) :-
-            atom_concat('http://127.0.0.1:',Port,URL1),
+            atom_concat('http://localhost:',Port,URL1),
             atom_concat(URL1,'/problem/',URL2),
             atom_concat(URL2,Problem,URL3),
             atom_concat(URL3,'/',URL4),
@@ -119,7 +122,8 @@ solve(Problem,ID,Port) :-
             json_to_prolog(Json,Object),
             atom_concat('solve_',Problem,FCall),
             call(FCall,Object,Result),
-            PostObject = json([problemKey=ID,solution=Result]),
+            prolog_to_json(solution(ID,Result),PostObject),
+           % PostObject = json([problemKey=ID,solution=Result]),
             http_post(URL3,json(PostObject),_,[]).
 
 solve_sudoku(Object,Sudoku) :-
@@ -130,7 +134,7 @@ solve_sudoku(Object,Sudoku) :-
 
 solve_relationship(Object,Result) :-
             Object = json([firstpersonname= FName,problemKey=_,relationship= Relationship,secondPerson=SName ]),
-            call(Relation,FName,SName),
+            call(Relationship,FName,SName),
             Result = true, !.
 solve_relationship(_,Result) :-
             Result = false.
