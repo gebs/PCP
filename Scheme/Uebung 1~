@@ -1,0 +1,22 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname |Uebung 1|) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+; Aufgabe 5 a).
+; Nein da sie sich gegenseitig ausschliessen
+
+; Aufgabe 5 b).
+; Nein bei der Cond ist die Reihenfolge wichtig! Wenn erster ausdruck true zurückgibt wird abgebrochen; z.B. 6
+
+; Aufgabe 6 a).
+; Sicherstellen dass total-weight eine Zahl grösser 0 ist.
+
+; Aufgabe 6 b).
+; Weil sich die Klauseln nicht gegenseitig ausschliessen. Wenn Klausel 4 true ist ist Klausel 3 auch true.
+
+; Aufgabe 6 c).
+;(cond
+;    ((zero?  (remainder zahl 2)) "Die Zahl ist gerade")
+;    ((not(zero? (remainder zahl 2))) "Die Zahl ist ungerade")
+;  )
+
+; Aufgabe 7 a).
