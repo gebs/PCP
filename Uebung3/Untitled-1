@@ -1,0 +1,39 @@
+(float a, float b) -> { 
+    if (a > b)
+        return a;
+    else
+        return b;
+}
+
+(Item item) ->{ item.check(); item.setId(77);}
+
+1.)
+ UnaryOperator<String> x = String::toUpper
+2.)
+ Predicate<String> y = String::isEmpty
+3.)
+ BiPredicate<String,String> 
+
+ 1.
+ Consumer<ActionEvent>
+ 2.
+ Collection<Account> accounts;
+ accounts.forEach(x-> x.check) oder accounts.forEach(Account::check)
+ 3.
+ Optional<String>
+
+1.
+Für die Implementierung der Hight Order Functions
+2. 
+InsStream is = IntStream.range(10,101);
+3.
+Stream<String> stringStream = Stream.of("a","b","c");
+
+
+1. 
+.reduce(0,(b1,b2) -> b1 + b2)
+2.
+int sum = IntStream.range(0,11)
+                        .filter(x-> x%3 == 0)
+                        .map(x-> x+1)
+                        .reduce(1,(b1,b2)-> b1*b2);

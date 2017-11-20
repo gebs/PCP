@@ -64,19 +64,21 @@
            (draw_line spacing spacing (- layer_width spacing) (- layer_height spacing))
            ))
     
-    
+    ; (gimp-message "finished")
     ; ab hier die Gitterlinien-Funktionen...
 
     (define (draw_h_lines restheight finishheight)
       (cond ((> (- restheight spacing) finishheight)
             (draw_line spacing (- restheight spacing) (- layer_width spacing) (- restheight spacing))
             (draw_h_lines (- restheight spacing) finishheight))
-            else (gimp-message "finished")))
+           ))
+
+    
     (define (draw_v_lines restwidth finishwidth)
           (cond ((> (- restwidth spacing) finishwidth)
                 (draw_line  (- restwidth spacing) spacing (- restwidth spacing) (- layer_height spacing))
                 (draw_v_lines (- restwidth spacing) finishwidth))
-                else (gimp-message "finished")))
+                ))
 
     
     (define (draw_dv_lines restwidth restheight lineheight finishwidth)
@@ -110,7 +112,7 @@
     (cond ((and (and (eq? vertical FALSE) (eq? horizontal TRUE)) (eq? dashed TRUE))
            (draw_dh_lines layer_width layer_height (- spacing 10) 0)
          ))
-        (cond ((and (and (eq? vertical TRUE) (eq? horizontal TRUE)) (eq? dashed TRUE))
+    (cond ((and (and (eq? vertical TRUE) (eq? horizontal TRUE)) (eq? dashed TRUE))
            (draw_dh_lines layer_width layer_height spacing spacing)
            (draw_dv_lines layer_width layer_height spacing spacing)
          ))

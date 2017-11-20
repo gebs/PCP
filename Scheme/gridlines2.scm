@@ -29,7 +29,7 @@
   (let*(
         ; Grundeinstellungen - Farbe, Breite, Höhe, Ebene...
         (color 0)
-        (layer (car(gimp-layer-new image (car(gimp-drawable-width drawable)) (car(gimp-drawable-width drawable)) RGBA-IMAGE "grid-layer" 100 NORMAL-MODE)))
+        (layer (car(gimp-layer-new image (car(gimp-image-width image)) (car(gimp-image-width image)) RGBA-IMAGE "grid-layer" 100 NORMAL-MODE)))
         (layer_width (car(gimp-drawable-width layer)))
         (layer_height (car(gimp-drawable-height layer)))
         ; Anfangs- und Endpunkt einer Linie definieren x1, y1, x2, y2
@@ -67,12 +67,12 @@
             (draw_line spacing (- restheight spacing) (- layer_width spacing) (- restheight spacing))
             (draw_h_lines (- restheight spacing) finishheight))
             ))
+    
     (define (draw_v_lines restwidth finishwidth)
           (cond ((> (- restwidth spacing) finishwidth)
                 (draw_line  (- restwidth spacing) spacing (- restwidth spacing) (- layer_height spacing))
                 (draw_v_lines (- restwidth spacing) finishwidth))
                 ))
-
     
     (define (draw_dv_lines restwidth restheight lineheight finishwidth)
       (cond ((> (- (- restheight spacing) lineheight) 0)
@@ -113,7 +113,7 @@
     ; ...Ende der Gitterlinien-Funktionen
     
     ; Bild anzeigen
-    (gimp-display-new image)
+    ;(gimp-display-new image)
     (gimp-context-pop)
     (gimp-displays-flush)
     )

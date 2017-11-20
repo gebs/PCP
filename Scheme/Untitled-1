@@ -1,0 +1,3 @@
+
+Die Ordnung die Comparable.compareTo zurückliefert.
+naturalOrder().reversed;
